@@ -1,0 +1,1176 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0",
+        "title": "Rakamin Chat",
+        "contact": {}
+    },
+    "host": "127.0.0.1:8001",
+    "basePath": "/api",
+    "securityDefinitions": {},
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/register": {
+            "post": {
+                "summary": "Register",
+                "tags": [
+                    "Auth"
+                ],
+                "operationId": "Register",
+                "deprecated": false,
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [{
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": false,
+                        "default": "Bearer {token}",
+                        "type": "string"
+                    },
+                    {
+                        "name": "username",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": ""
+                    },
+                    {
+                        "name": "fullname",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": ""
+                    },
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": ""
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": ""
+                    },
+                    {
+                        "name": "password_confirmation",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": ""
+                    },
+                    {
+                        "name": "phone",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/m200"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "data": {
+                                    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMVwvYXBpXC9yZWdpc3RlciIsImlhdCI6MTYzOTQwMTUyMCwiZXhwIjoxNjcwOTU5MTIwLCJuYmYiOjE2Mzk0MDE1MjAsImp0aSI6ImtVWXB2N1NvaTBMcUF0TzYiLCJzdWIiOiJjM2Q4LWU3M2YtMDMyMi1iMzA3LTU2M2MtZDM1ZCIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.RERrDM4q60G5kffcGJvUZzzJhlLz3pBUFDB_MS79NyY",
+                                    "user": {
+                                        "id": "c3d8-e73f-0322-b307-563c-d35d",
+                                        "fullname": "user1",
+                                        "username": "user1",
+                                        "email": "user1@gmail.com",
+                                        "phone": "081210693437",
+                                        "updated_at": "2021-12-13T13:18:39.000000Z",
+                                        "created_at": "2021-12-13T13:18:39.000000Z"
+                                    }
+                                },
+                                "time_zone": "UTC",
+                                "date_time": "2021-12-13 13:18:40",
+                                "epoch_time": 1639401520,
+                                "execution_time": "0 ms"
+                            }
+                        },
+                        "headers": {
+                            "Host": {
+                                "type": "string",
+                                "default": "127.0.0.1:8001"
+                            },
+                            "Date": {
+                                "type": "string",
+                                "default": "Mon, 13 Dec 2021 13:18:40 GMT"
+                            },
+                            "Connection": {
+                                "type": "string",
+                                "default": "close"
+                            },
+                            "X-Powered-By": {
+                                "type": "string",
+                                "default": "PHP/7.4.21"
+                            },
+                            "Cache-Control": {
+                                "type": "string",
+                                "default": "no-cache, private"
+                            },
+                            "X-RateLimit-Limit": {
+                                "type": "string",
+                                "default": "60"
+                            },
+                            "X-RateLimit-Remaining": {
+                                "type": "string",
+                                "default": "58"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "summary": "Login",
+                "tags": [
+                    "Auth"
+                ],
+                "operationId": "Login",
+                "deprecated": false,
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [{
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": false,
+                        "default": "Bearer {token}",
+                        "type": "string"
+                    },
+                    {
+                        "name": "username",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": ""
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/m2001"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "data": {
+                                    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMVwvYXBpXC9sb2dpbiIsImlhdCI6MTYzOTQwMTU1NCwiZXhwIjoxNjcwOTU5MTU0LCJuYmYiOjE2Mzk0MDE1NTQsImp0aSI6IldESUpnbzZsR25YRlNqU2YiLCJzdWIiOiJjM2Q4LWU3M2YtMDMyMi1iMzA3LTU2M2MtZDM1ZCIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.fc-b_RC81FTiPKaH4nKHKYGRF9KFjZ1VIi76fBUMOyk"
+                                },
+                                "time_zone": "UTC",
+                                "date_time": "2021-12-13 13:19:14",
+                                "epoch_time": 1639401554,
+                                "execution_time": "1 ms"
+                            }
+                        },
+                        "headers": {
+                            "Host": {
+                                "type": "string",
+                                "default": "127.0.0.1:8001"
+                            },
+                            "Date": {
+                                "type": "string",
+                                "default": "Mon, 13 Dec 2021 13:19:14 GMT"
+                            },
+                            "Connection": {
+                                "type": "string",
+                                "default": "close"
+                            },
+                            "X-Powered-By": {
+                                "type": "string",
+                                "default": "PHP/7.4.21"
+                            },
+                            "Cache-Control": {
+                                "type": "string",
+                                "default": "no-cache, private"
+                            },
+                            "X-RateLimit-Limit": {
+                                "type": "string",
+                                "default": "60"
+                            },
+                            "X-RateLimit-Remaining": {
+                                "type": "string",
+                                "default": "56"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/update-password": {
+            "post": {
+                "summary": "Update Password",
+                "tags": [
+                    "Auth"
+                ],
+                "operationId": "UpdatePassword",
+                "deprecated": false,
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [{
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": false,
+                        "default": "Bearer {token}",
+                        "type": "string"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": ""
+                    },
+                    {
+                        "name": "password_confirmation",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/m2002"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "time_zone": "UTC",
+                                "date_time": "2021-12-13 13:28:57",
+                                "epoch_time": 1639402137,
+                                "execution_time": "1 ms"
+                            }
+                        },
+                        "headers": {
+                            "Host": {
+                                "type": "string",
+                                "default": "127.0.0.1:8001"
+                            },
+                            "Date": {
+                                "type": "string",
+                                "default": "Mon, 13 Dec 2021 13:28:57 GMT"
+                            },
+                            "Connection": {
+                                "type": "string",
+                                "default": "close"
+                            },
+                            "X-Powered-By": {
+                                "type": "string",
+                                "default": "PHP/7.4.21"
+                            },
+                            "Cache-Control": {
+                                "type": "string",
+                                "default": "no-cache, private"
+                            },
+                            "X-RateLimit-Limit": {
+                                "type": "string",
+                                "default": "60"
+                            },
+                            "X-RateLimit-Remaining": {
+                                "type": "string",
+                                "default": "59"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/update-account": {
+            "post": {
+                "summary": "Update Account",
+                "tags": [
+                    "Auth"
+                ],
+                "operationId": "UpdateAccount",
+                "deprecated": false,
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [{
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": false,
+                        "default": "Bearer {token}",
+                        "type": "string"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": ""
+                    },
+                    {
+                        "name": "password_confirmation",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": ""
+                    },
+                    {
+                        "name": "Username",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/m2003"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "data": {
+                                    "id": "c3d8-e73f-0322-b307-563c-d35d",
+                                    "username": "siapa",
+                                    "fullname": "user1",
+                                    "email": "user1@gmail.com",
+                                    "email_verified_at": null,
+                                    "phone": "081210693437",
+                                    "created_at": "2021-12-13T13:18:39.000000Z",
+                                    "updated_at": "2021-12-13T13:23:54.000000Z",
+                                    "Username": "imam"
+                                },
+                                "time_zone": "UTC",
+                                "date_time": "2021-12-13 13:23:54",
+                                "epoch_time": 1639401834,
+                                "execution_time": "0 ms"
+                            }
+                        },
+                        "headers": {
+                            "Host": {
+                                "type": "string",
+                                "default": "127.0.0.1:8001"
+                            },
+                            "Date": {
+                                "type": "string",
+                                "default": "Mon, 13 Dec 2021 13:23:54 GMT"
+                            },
+                            "Connection": {
+                                "type": "string",
+                                "default": "close"
+                            },
+                            "X-Powered-By": {
+                                "type": "string",
+                                "default": "PHP/7.4.21"
+                            },
+                            "Cache-Control": {
+                                "type": "string",
+                                "default": "no-cache, private"
+                            },
+                            "X-RateLimit-Limit": {
+                                "type": "string",
+                                "default": "60"
+                            },
+                            "X-RateLimit-Remaining": {
+                                "type": "string",
+                                "default": "57"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/me": {
+            "get": {
+                "summary": "Me",
+                "tags": [
+                    "Auth"
+                ],
+                "operationId": "Me",
+                "deprecated": false,
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "name": "Authorization",
+                    "in": "header",
+                    "required": false,
+                    "default": "Bearer {token}",
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/m2004"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "data": {
+                                    "user": {
+                                        "id": "c3d8-e73f-0322-b307-563c-d35d",
+                                        "username": "imam",
+                                        "fullname": "user1",
+                                        "email": "user1@gmail.com",
+                                        "email_verified_at": null,
+                                        "phone": "081210693437",
+                                        "created_at": "2021-12-13T13:18:39.000000Z",
+                                        "updated_at": "2021-12-13T13:24:27.000000Z"
+                                    }
+                                },
+                                "time_zone": "UTC",
+                                "date_time": "2021-12-13 13:24:53",
+                                "epoch_time": 1639401893,
+                                "execution_time": "0 ms"
+                            }
+                        },
+                        "headers": {
+                            "Host": {
+                                "type": "string",
+                                "default": "127.0.0.1:8001"
+                            },
+                            "Date": {
+                                "type": "string",
+                                "default": "Mon, 13 Dec 2021 13:24:53 GMT"
+                            },
+                            "Connection": {
+                                "type": "string",
+                                "default": "close"
+                            },
+                            "X-Powered-By": {
+                                "type": "string",
+                                "default": "PHP/7.4.21"
+                            },
+                            "Cache-Control": {
+                                "type": "string",
+                                "default": "no-cache, private"
+                            },
+                            "X-RateLimit-Limit": {
+                                "type": "string",
+                                "default": "60"
+                            },
+                            "X-RateLimit-Remaining": {
+                                "type": "string",
+                                "default": "59"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/m4011"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "message": "Authorization Token not found",
+                                "time_zone": "UTC",
+                                "date_time": "2021-12-13 13:27:57",
+                                "epoch_time": 1639402077,
+                                "execution_time": "1 ms"
+                            }
+                        },
+                        "headers": {
+                            "Host": {
+                                "type": "string",
+                                "default": "127.0.0.1:8001"
+                            },
+                            "Date": {
+                                "type": "string",
+                                "default": "Mon, 13 Dec 2021 13:27:57 GMT"
+                            },
+                            "Connection": {
+                                "type": "string",
+                                "default": "close"
+                            },
+                            "X-Powered-By": {
+                                "type": "string",
+                                "default": "PHP/7.4.21"
+                            },
+                            "Cache-Control": {
+                                "type": "string",
+                                "default": "no-cache, private"
+                            },
+                            "X-RateLimit-Limit": {
+                                "type": "string",
+                                "default": "60"
+                            },
+                            "X-RateLimit-Remaining": {
+                                "type": "string",
+                                "default": "58"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/chats": {
+            "post": {
+                "summary": "Create",
+                "tags": [
+                    "Chat"
+                ],
+                "operationId": "Create",
+                "deprecated": false,
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [{
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": false,
+                        "default": "Bearer {token}",
+                        "type": "string"
+                    },
+                    {
+                        "name": "phone",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": ""
+                    },
+                    {
+                        "name": "to",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": ""
+                    },
+                    {
+                        "name": "message",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {}
+                    }
+                }
+            },
+            "get": {
+                "summary": "List",
+                "tags": [
+                    "Chat"
+                ],
+                "operationId": "List",
+                "deprecated": false,
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "name": "Authorization",
+                    "in": "header",
+                    "required": false,
+                    "default": "Bearer {token}",
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {}
+                    }
+                }
+            }
+        },
+        "/chats/{id}": {
+            "get": {
+                "summary": "Detail",
+                "tags": [
+                    "Chat"
+                ],
+                "operationId": "Detail",
+                "deprecated": false,
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": false,
+                        "default": "Bearer {token}",
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "default": "",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {}
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete Chat",
+                "tags": [
+                    "Chat"
+                ],
+                "operationId": "DeleteChat",
+                "deprecated": false,
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "name": "Authorization",
+                    "in": "header",
+                    "required": false,
+                    "default": "Bearer {token}",
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {}
+                    }
+                }
+            }
+        },
+        "/chats/message/{id}": {
+            "delete": {
+                "summary": "Delete Message",
+                "tags": [
+                    "Chat"
+                ],
+                "operationId": "DeleteMessage",
+                "deprecated": false,
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": false,
+                        "default": "Bearer {token}",
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "default": "",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {}
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "m200": {
+            "title": "m200",
+            "example": {
+                "data": {
+                    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMVwvYXBpXC9yZWdpc3RlciIsImlhdCI6MTYzOTQwMTUyMCwiZXhwIjoxNjcwOTU5MTIwLCJuYmYiOjE2Mzk0MDE1MjAsImp0aSI6ImtVWXB2N1NvaTBMcUF0TzYiLCJzdWIiOiJjM2Q4LWU3M2YtMDMyMi1iMzA3LTU2M2MtZDM1ZCIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.RERrDM4q60G5kffcGJvUZzzJhlLz3pBUFDB_MS79NyY",
+                    "user": {
+                        "id": "c3d8-e73f-0322-b307-563c-d35d",
+                        "fullname": "user1",
+                        "username": "user1",
+                        "email": "user1@gmail.com",
+                        "phone": "081210693437",
+                        "updated_at": "2021-12-13T13:18:39.000000Z",
+                        "created_at": "2021-12-13T13:18:39.000000Z"
+                    }
+                },
+                "time_zone": "UTC",
+                "date_time": "2021-12-13 13:18:40",
+                "epoch_time": 1639401520,
+                "execution_time": "0 ms"
+            },
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/Data"
+                },
+                "time_zone": {
+                    "type": "string"
+                },
+                "date_time": {
+                    "type": "string"
+                },
+                "epoch_time": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "execution_time": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "data",
+                "time_zone",
+                "date_time",
+                "epoch_time",
+                "execution_time"
+            ]
+        },
+        "Data": {
+            "title": "Data",
+            "example": {
+                "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMVwvYXBpXC9yZWdpc3RlciIsImlhdCI6MTYzOTQwMTUyMCwiZXhwIjoxNjcwOTU5MTIwLCJuYmYiOjE2Mzk0MDE1MjAsImp0aSI6ImtVWXB2N1NvaTBMcUF0TzYiLCJzdWIiOiJjM2Q4LWU3M2YtMDMyMi1iMzA3LTU2M2MtZDM1ZCIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.RERrDM4q60G5kffcGJvUZzzJhlLz3pBUFDB_MS79NyY",
+                "user": {
+                    "id": "c3d8-e73f-0322-b307-563c-d35d",
+                    "fullname": "user1",
+                    "username": "user1",
+                    "email": "user1@gmail.com",
+                    "phone": "081210693437",
+                    "updated_at": "2021-12-13T13:18:39.000000Z",
+                    "created_at": "2021-12-13T13:18:39.000000Z"
+                }
+            },
+            "type": "object",
+            "properties": {
+                "token": {
+                    "type": "string"
+                },
+                "user": {
+                    "$ref": "#/definitions/User"
+                }
+            },
+            "required": [
+                "token",
+                "user"
+            ]
+        },
+        "User": {
+            "title": "User",
+            "example": {
+                "id": "c3d8-e73f-0322-b307-563c-d35d",
+                "fullname": "user1",
+                "username": "user1",
+                "email": "user1@gmail.com",
+                "phone": "081210693437",
+                "updated_at": "2021-12-13T13:18:39.000000Z",
+                "created_at": "2021-12-13T13:18:39.000000Z"
+            },
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "fullname": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "fullname",
+                "username",
+                "email",
+                "phone",
+                "updated_at",
+                "created_at"
+            ]
+        },
+        "m2001": {
+            "title": "m2001",
+            "example": {
+                "data": {
+                    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMVwvYXBpXC9sb2dpbiIsImlhdCI6MTYzOTQwMTU1NCwiZXhwIjoxNjcwOTU5MTU0LCJuYmYiOjE2Mzk0MDE1NTQsImp0aSI6IldESUpnbzZsR25YRlNqU2YiLCJzdWIiOiJjM2Q4LWU3M2YtMDMyMi1iMzA3LTU2M2MtZDM1ZCIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.fc-b_RC81FTiPKaH4nKHKYGRF9KFjZ1VIi76fBUMOyk"
+                },
+                "time_zone": "UTC",
+                "date_time": "2021-12-13 13:19:14",
+                "epoch_time": 1639401554,
+                "execution_time": "1 ms"
+            },
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/Data1"
+                },
+                "time_zone": {
+                    "type": "string"
+                },
+                "date_time": {
+                    "type": "string"
+                },
+                "epoch_time": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "execution_time": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "data",
+                "time_zone",
+                "date_time",
+                "epoch_time",
+                "execution_time"
+            ]
+        },
+        "Data1": {
+            "title": "Data1",
+            "example": {
+                "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMVwvYXBpXC9sb2dpbiIsImlhdCI6MTYzOTQwMTU1NCwiZXhwIjoxNjcwOTU5MTU0LCJuYmYiOjE2Mzk0MDE1NTQsImp0aSI6IldESUpnbzZsR25YRlNqU2YiLCJzdWIiOiJjM2Q4LWU3M2YtMDMyMi1iMzA3LTU2M2MtZDM1ZCIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.fc-b_RC81FTiPKaH4nKHKYGRF9KFjZ1VIi76fBUMOyk"
+            },
+            "type": "object",
+            "properties": {
+                "token": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "token"
+            ]
+        },
+        "m2002": {
+            "title": "m2002",
+            "example": {
+                "time_zone": "UTC",
+                "date_time": "2021-12-13 13:28:57",
+                "epoch_time": 1639402137,
+                "execution_time": "1 ms"
+            },
+            "type": "object",
+            "properties": {
+                "time_zone": {
+                    "type": "string"
+                },
+                "date_time": {
+                    "type": "string"
+                },
+                "epoch_time": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "execution_time": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "time_zone",
+                "date_time",
+                "epoch_time",
+                "execution_time"
+            ]
+        },
+        "m2003": {
+            "title": "m2003",
+            "example": {
+                "data": {
+                    "id": "c3d8-e73f-0322-b307-563c-d35d",
+                    "username": "siapa",
+                    "fullname": "user1",
+                    "email": "user1@gmail.com",
+                    "email_verified_at": null,
+                    "phone": "081210693437",
+                    "created_at": "2021-12-13T13:18:39.000000Z",
+                    "updated_at": "2021-12-13T13:23:54.000000Z",
+                    "Username": "imam"
+                },
+                "time_zone": "UTC",
+                "date_time": "2021-12-13 13:23:54",
+                "epoch_time": 1639401834,
+                "execution_time": "0 ms"
+            },
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/Data2"
+                },
+                "time_zone": {
+                    "type": "string"
+                },
+                "date_time": {
+                    "type": "string"
+                },
+                "epoch_time": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "execution_time": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "data",
+                "time_zone",
+                "date_time",
+                "epoch_time",
+                "execution_time"
+            ]
+        },
+        "Data2": {
+            "title": "Data2",
+            "example": {
+                "id": "c3d8-e73f-0322-b307-563c-d35d",
+                "username": "siapa",
+                "fullname": "user1",
+                "email": "user1@gmail.com",
+                "email_verified_at": null,
+                "phone": "081210693437",
+                "created_at": "2021-12-13T13:18:39.000000Z",
+                "updated_at": "2021-12-13T13:23:54.000000Z",
+                "Username": "imam"
+            },
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "fullname": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "email_verified_at": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "username",
+                "fullname",
+                "email",
+                "email_verified_at",
+                "phone",
+                "created_at",
+                "updated_at"
+            ]
+        },
+        "m2004": {
+            "title": "m2004",
+            "example": {
+                "data": {
+                    "user": {
+                        "id": "c3d8-e73f-0322-b307-563c-d35d",
+                        "username": "imam",
+                        "fullname": "user1",
+                        "email": "user1@gmail.com",
+                        "email_verified_at": null,
+                        "phone": "081210693437",
+                        "created_at": "2021-12-13T13:18:39.000000Z",
+                        "updated_at": "2021-12-13T13:24:27.000000Z"
+                    }
+                },
+                "time_zone": "UTC",
+                "date_time": "2021-12-13 13:24:53",
+                "epoch_time": 1639401893,
+                "execution_time": "0 ms"
+            },
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/Data3"
+                },
+                "time_zone": {
+                    "type": "string"
+                },
+                "date_time": {
+                    "type": "string"
+                },
+                "epoch_time": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "execution_time": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "data",
+                "time_zone",
+                "date_time",
+                "epoch_time",
+                "execution_time"
+            ]
+        },
+        "Data3": {
+            "title": "Data3",
+            "example": {
+                "user": {
+                    "id": "c3d8-e73f-0322-b307-563c-d35d",
+                    "username": "imam",
+                    "fullname": "user1",
+                    "email": "user1@gmail.com",
+                    "email_verified_at": null,
+                    "phone": "081210693437",
+                    "created_at": "2021-12-13T13:18:39.000000Z",
+                    "updated_at": "2021-12-13T13:24:27.000000Z"
+                }
+            },
+            "type": "object",
+            "properties": {
+                "user": {
+                    "$ref": "#/definitions/User1"
+                }
+            },
+            "required": [
+                "user"
+            ]
+        },
+        "User1": {
+            "title": "User1",
+            "example": {
+                "id": "c3d8-e73f-0322-b307-563c-d35d",
+                "username": "imam",
+                "fullname": "user1",
+                "email": "user1@gmail.com",
+                "email_verified_at": null,
+                "phone": "081210693437",
+                "created_at": "2021-12-13T13:18:39.000000Z",
+                "updated_at": "2021-12-13T13:24:27.000000Z"
+            },
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "fullname": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "email_verified_at": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "username",
+                "fullname",
+                "email",
+                "email_verified_at",
+                "phone",
+                "created_at",
+                "updated_at"
+            ]
+        },
+        "m4011": {
+            "title": "m4011",
+            "example": {
+                "message": "Authorization Token not found",
+                "time_zone": "UTC",
+                "date_time": "2021-12-13 13:27:57",
+                "epoch_time": 1639402077,
+                "execution_time": "1 ms"
+            },
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "time_zone": {
+                    "type": "string"
+                },
+                "date_time": {
+                    "type": "string"
+                },
+                "epoch_time": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "execution_time": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "message",
+                "time_zone",
+                "date_time",
+                "epoch_time",
+                "execution_time"
+            ]
+        }
+    },
+    "tags": [{
+            "name": "Auth"
+        },
+        {
+            "name": "Chat"
+        }
+    ]
+}
